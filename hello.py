@@ -2,11 +2,11 @@ from preswald import text, plotly, connect, get_df, table, query, slider, checkb
 import pandas as pd
 import plotly.express as px
 
-text("# 2024-25 NCAA Men's Basketball Season")
 
 connect()
 df = get_df('cbb25_csv')
 
+text("# 2024-25 NCAA Men's Basketball Season")
 separator()
 threshold = slider("Top N teams", min_val=1, max_val=364, default=25)
 separator()
@@ -35,7 +35,6 @@ if EFG_D_shown:
 if TOR_shown:
     columns.append("TOR")
 
-
 separator()
 table(df[df["Rank"] <= threshold][columns], title="Dynamic Data View")
 separator()
@@ -43,7 +42,6 @@ text("## Statistical Relationships")
 
 possible_options = ["Offensive Efficiency", "Defensive Efficiency", "Power Rating", "EFG Shot", "EFG Allowed", "Turnover Rate"]
 option_map = {"Offensive Efficiency":"ADJOE", "Defensive Efficiency":"ADJDE", "Power Rating":"BARTHAG", "EFG Shot":"EFG_O", "EFG Allowed":"EFG_D", "Turnover Rate":"TOR"}
-
 
 choice_x = selectbox(
     label="Choose x-axis",
@@ -59,7 +57,6 @@ choice_y = selectbox(
 
 x_col = option_map[choice_x]
 y_col = option_map[choice_y]
-
 
 sql = f"SELECT * FROM cbb25_csv WHERE RK <= {threshold}"
 filtered_df = query(sql, "cbb25_csv")
