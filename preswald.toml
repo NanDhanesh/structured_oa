@@ -1,0 +1,24 @@
+[project]
+title = "NCAA Men's Basketball"
+version = "0.1.0"
+port = 8501
+slug = "preswald-project"  
+entrypoint = "hello.py"    
+
+[branding]
+name = "NCAA Men's Basketball"
+logo = "images/logo.png"
+favicon = "images/basketball.png"
+primaryColor = "#F89613"
+
+[data.sample_csv]
+type = "csv"
+path = "data/sample.csv"
+
+[data.cbb25_csv]
+type = "csv"
+path = "data/cbb25.csv"
+
+[logging]
+level = "INFO"  
+format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
